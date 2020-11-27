@@ -1,3 +1,4 @@
+
 package com.vaadin.tutorial.crm.backend.entity;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Contact extends AbstractEntity implements Cloneable {
+
     public enum Status {
         ImportedLead, NotContacted, Contacted, Customer, ClosedLost
     }
@@ -32,28 +34,12 @@ public class Contact extends AbstractEntity implements Cloneable {
     @NotEmpty
     private String email = "";
 
-    public String getFirstName() {
-        return firstName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Status getStatus() {
@@ -64,16 +50,33 @@ public class Contact extends AbstractEntity implements Cloneable {
         this.status = status;
     }
 
-    public String getEmail() {
-        return email;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Company getCompany() {
+        return company;
     }
 
     @Override
     public String toString() {
         return firstName + " " + lastName;
     }
+
 }

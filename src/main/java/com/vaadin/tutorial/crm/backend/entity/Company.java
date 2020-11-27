@@ -1,8 +1,6 @@
 package com.vaadin.tutorial.crm.backend.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,21 +11,22 @@ public class Company extends AbstractEntity {
     @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
     private List<Contact> employees = new LinkedList<>();
 
-    public Company(){
-
+    public Company() {
     }
 
     public Company(String name) {
         setName(name);
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public List<Contact> getEmployees() {
         return employees;
     }
-
 }
